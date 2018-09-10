@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from './global';
 
 @Injectable()
-export class VehiculoServices {
+export class CochesServices {
     public url: string;
     public identity;
     public token;
@@ -24,29 +24,20 @@ export class VehiculoServices {
             .pipe(map(res => res.json()));
     }
 
-    getPages(user_id) {
-        let headers = new Headers({'Content-Type':'application/json',
-        'Authorization': this.getToken()});
-        let options = new RequestOptions({headers: headers})
-
-        return this._http.get(this.url+'pages/' + user_id, options)
-            .pipe(map(res => res.json()));
-    }
-
-    getPage(name) {
+    getCoches() {
         let headers = new Headers({'Content-Type':'application/json'});
         let options = new RequestOptions({headers: headers})
 
-        return this._http.get(this.url+'page/' + name, options)
+        return this._http.get(this.url+'vehiculos/', options)
             .pipe(map(res => res.json()));
     }
 
-    deletePage(id: string) {
+    borrarCoche(id: string) {
         let headers = new Headers({'Content-Type':'application/json',
             'Authorization': this.getToken()})
         let options = new RequestOptions({headers: headers})
 
-        return this._http.delete(this.url+'remove-page/'+id, options)
+        return this._http.delete(this.url+'eliminar-vehiculo/'+id, options)
             .pipe(map(res => res.json()))
     }
 

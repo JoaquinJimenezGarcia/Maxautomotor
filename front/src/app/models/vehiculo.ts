@@ -4,6 +4,8 @@ export class Vehiculo {
         public marca: string,
         public modelo: string,
         public disponibilidad: boolean,
-        public fotos: [string]
+        public fotos: [string],
+        public descripcion: string,
+        public precio: number
     ) {}
 }

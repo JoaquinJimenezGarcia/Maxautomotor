@@ -7,12 +7,20 @@ import { routing, appRoutingProviders} from './app.routing';
 import { AppComponent } from './app.component';
 import { SobreNosotrosComponent } from './components/sobre-nosotros.component';
 import { InicioComponent } from './components/inicio.component';
+import { CochesComponent } from './components/coches.component';
+import { AdminLoginComponent } from './components/admin-login.component';
+import { AdminCochesComponent } from './components/admin-coches.component';
+import { AdminCocheComponent } from './components/admin-coche.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SobreNosotrosComponent,
-    InicioComponent
+    InicioComponent,
+    CochesComponent,
+    AdminLoginComponent,
+    AdminCochesComponent,
+    AdminCocheComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +29,14 @@ import { InicioComponent } from './components/inicio.component';
     routing
   ],
   providers: [appRoutingProviders],
-  bootstrap: [AppComponent, SobreNosotrosComponent, InicioComponent]
+  bootstrap: [
+    AppComponent, 
+    SobreNosotrosComponent, 
+    InicioComponent, 
+    CochesComponent,
+    AdminLoginComponent,
+    AdminCochesComponent,
+    AdminCocheComponent
+  ]
 })
 export class AppModule { }

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehiculo } from './models/vehiculo';
-import { VehiculoServices } from './services/vehiculo.services';
+import { CochesServices } from './services/coches.services';
+import { UsuarioServices } from './services/usuario.services';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [VehiculoServices]
+  providers: [CochesServices, UsuarioServices]
 })
 
 export class AppComponent implements OnInit {

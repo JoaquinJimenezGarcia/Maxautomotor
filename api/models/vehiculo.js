@@ -7,7 +7,9 @@ var VehiculoSchema = Schema({
     modelo: String,
     marca: String,
     disponibilidad: Boolean,
-    fotos: [String]
+    fotos: [String],
+    descripcion: String,
+    precio: Number
 })
 
 module.exports = mongoose.model('Vehiculo', VehiculoSchema)
