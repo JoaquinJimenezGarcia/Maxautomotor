@@ -29,7 +29,8 @@ export class AdminCocheComponent implements OnInit {
 
         this._cocheServices.crear(this.coche)
             .subscribe(response => {
-                let coche = response.page;
+                console.log(response);
+                let coche = response.vehiculo;
                 this.coche = coche;
 
                 if (!coche._id) {
@@ -37,9 +38,11 @@ export class AdminCocheComponent implements OnInit {
                 } else {
                     this.alertCreation = "Page created successfully";
                     this.coche = new Vehiculo('', '', '', false, '', '', 0);
+                    this.router.navigate(["/admin-login"]);
                 }
             },
                 error => {
+                    console.log('Entra en el error');
                     this.alertCreation = <any>error;
 
                     if (this.alertCreation != null) {

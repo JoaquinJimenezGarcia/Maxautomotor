@@ -5,9 +5,9 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="coches">Todos</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="marcas">Marcas</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="/coches-disponibles.html">Disponibles</a>
                     </li>
@@ -19,10 +19,10 @@
     <div class="row">
         <div class="col-lg-4 col-sm-6 portfolio-item" *ngFor="let coche of coches">
             <div *ngIf="coche.disponibilidad" class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <a><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="#">{{coche.marca}} - {{coche.modelo}} ( {{coche.precio}} €)</a>
+                        <a>{{coche.marca}} - {{coche.modelo}} ( {{coche.precio}} €)</a>
                     </h4>
                     <p class="card-text">{{coche.descripcion}}</p>
                 </div>

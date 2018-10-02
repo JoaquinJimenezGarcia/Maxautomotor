@@ -118,7 +118,7 @@ export class AdminLoginComponent implements OnInit {
   borrarCoche(id) {
     this._cocheServices.borrarCoche(id).subscribe(
       response => {
-        if (!response.vehiculos) {
+        if (!response.vehiculo) {
           //this.alert = 'No deletions were made.';
         } else {
           this.ngOnInit()
