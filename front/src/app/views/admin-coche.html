@@ -1,19 +1,41 @@
 <br>
+<div *ngIf="!identity">
+  <h1>Acceso restringido. Debe iniciar sesión primero</h1>
+</div>
 <div *ngIf="identity" class="col-lg-6">
     <h1>Coche</h1>
     <div *ngIf="alertRegister" class="alert alert-warning">
       {{ alertRegister }}
     </div>
-    <form #registerForm="ngForm" (ngSubmit)="onSubmitRegister()" action="" class="col-md-10">
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit()" action="" class="col-md-10" enctype="multipart/form-data">
       <p>
         <label for="marca">Marca</label>
         <input type="text" class="form-control" #marca="ngModel" name="marca" [(ngModel)]="coche.marca" required>
-        <span *ngIf="!name.valid && name.touched">El nombre es obligatorio</span>
+        <span *ngIf="!marca.valid && marca.touched">La marca es obligatoria</span>
       </p>
       <p>
         <label for="modelo">Modelo</label>
-        <input type="email" class="form-control" #modelo="ngModel" name="modelo" [(ngModel)]="coche.modelo" required>
-        <span *ngIf="!email.valid && email.touched">El email es obligatorio</span>
+        <input type="text" class="form-control" #modelo="ngModel" name="modelo" [(ngModel)]="coche.modelo" required>
+        <span *ngIf="!modelo.valid && modelo.touched">El modelo es obligatorio</span>
+      </p>
+      <p>
+        <label for="disponibilidad">Disponibilidad</label>
+        <input type="checkbox" class="form-control" #disponibilidad="ngModel" name="disponibilidad" [(ngModel)]="coche.disponibilidad" required>
+        <span *ngIf="!disponibilidad.valid && disponibilidad.touched">Esta marcación es obligatoria</span>
+      </p>
+      <p>
+        <label for="descripcion">Descripcion</label>
+        <input type="text" class="form-control" #descripcion="ngModel" name="descripcion" [(ngModel)]="coche.descripcion" required>
+        <span *ngIf="!descripcion.valid && descripcion.touched">La descripción es obligatoria</span>
+      </p>
+      <p>
+        <label for="precio">Precio</label>
+        <input type="number" class="form-control" #precio="ngModel" name="precio" [(ngModel)]="coche.precio" required>
+        <span *ngIf="!precio.valid && precio.touched">El precio es obligatorio</span>
+      </p>
+      <p>
+        <label for="image">Foto principal</label>
+        <input type="file" class="form-control" #image="ngModel" name="image" [(ngModel)]="coche.image">
       </p>
       <p>
         <input type="submit" class="btn btn-primary" value="Guardar">

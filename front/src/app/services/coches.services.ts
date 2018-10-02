@@ -14,13 +14,13 @@ export class CochesServices {
         this.url = GLOBAL.url;
     }
 
-    create(page_to_create) {
-        let json = JSON.stringify(page_to_create);
+    crear(coche_a_insertar) {
+        let json = JSON.stringify(coche_a_insertar);
         let params = json;
         let headers = new Headers({'Content-Type':'application/json',
         'Authorization': this.getToken()});
 
-        return this._http.post(this.url+'create-page', params, {headers: headers})
+        return this._http.post(this.url+'agregar-vehiculo', params, {headers: headers})
             .pipe(map(res => res.json()));
     }
 
@@ -38,6 +38,15 @@ export class CochesServices {
         let options = new RequestOptions({headers: headers})
 
         return this._http.delete(this.url+'eliminar-vehiculo/'+id, options)
+            .pipe(map(res => res.json()))
+    }
+
+    cambiarDisponibilidad(id: string) {
+        let headers = new Headers({'Content-Type':'application/json',
+            'Authorization': this.getToken()})
+        let options = new RequestOptions({headers: headers})
+
+        return this._http.put(this.url+'actualizar-vehiculo/'+id, options)
             .pipe(map(res => res.json()))
     }
 

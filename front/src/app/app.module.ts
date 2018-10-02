@@ -9,8 +9,8 @@ import { SobreNosotrosComponent } from './components/sobre-nosotros.component';
 import { InicioComponent } from './components/inicio.component';
 import { CochesComponent } from './components/coches.component';
 import { AdminLoginComponent } from './components/admin-login.component';
-import { AdminCochesComponent } from './components/admin-coches.component';
 import { AdminCocheComponent } from './components/admin-coche.component';
+import { CochesDisponiblesComponent } from './components/coches-disponibles.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +19,8 @@ import { AdminCocheComponent } from './components/admin-coche.component';
     InicioComponent,
     CochesComponent,
     AdminLoginComponent,
-    AdminCochesComponent,
-    AdminCocheComponent
+    AdminCocheComponent,
+    CochesDisponiblesComponent
   ],
   imports: [
     BrowserModule,
@@ -35,8 +35,8 @@ import { AdminCocheComponent } from './components/admin-coche.component';
     InicioComponent, 
     CochesComponent,
     AdminLoginComponent,
-    AdminCochesComponent,
-    AdminCocheComponent
+    AdminCocheComponent,
+    CochesDisponiblesComponent
   ]
 })
 export class AppModule { }

@@ -7,7 +7,7 @@ var VehiculoSchema = Schema({
     modelo: String,
     marca: String,
     disponibilidad: Boolean,
-    fotos: [String],
+    image: String,
     descripcion: String,
     precio: Number
 })

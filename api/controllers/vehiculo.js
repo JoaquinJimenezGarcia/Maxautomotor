@@ -22,15 +22,84 @@ function obtenerVehiculos(req, res) {
     })
 }
 
+function subirFoto(req, res) {
+    var cocheId = req.params.id;
+    var file_name = 'No subido...';
+
+    if(req.files) {
+        var file_path = req.files.image.path;
+        var file_split = file_path.split('/');
+        var file_name = file_split[2];
+
+        console.log(file_name);
+    } else {
+        res.status(404).send({message: 'No se ha subido imagen.'})
+    }
+}
+
+function marcarComoDisponible(req, res) {
+    var vehiculoId = req.params.id 
+    req.body.disponibilidad = 1
+    var update = req.body.disponibilidad 
+
+    Vehiculo.findByIdAndUpdate(vehiculoId, update, (err, vehiculoUpdated) => {
+        if (err){
+            res.status(500).send({message: 'Error actualizando el vehículo.'})
+        } else {
+            if(!vehiculoUpdated) {
+                res.status(404).send({message: 'Internal error updating the vehiculo.'})
+            } else {
+                res.status(200).send({vehiculo: vehiculoUpdated})
+            }
+        }
+    })
+}
+
+function marcarComoNoDisponible(req, res) {
+    var vehiculoId = req.params.id 
+    req.body.disponibilidad = 0
+    var update = req.body.disponibilidad 
+
+    Vehiculo.findByIdAndUpdate(vehiculoId, update, (err, vehiculoUpdated) => {
+        if (err){
+            res.status(500).send({message: 'Error actualizando el vehículo.'})
+        } else {
+            if(!vehiculoUpdated) {
+                res.status(404).send({message: 'Internal error updating the vehiculo.'})
+            } else {
+                res.status(200).send({vehiculo: vehiculoUpdated})
+            }
+        }
+    })
+}
+
 function agregar(req, res){
     var vehiculo = new Vehiculo()
     var params = req.body
+    var file_name 
+
+    console.log('Req file:');
+    console.log(req.file);
+
+    if(req.files) {
+        var file_path = req.files.image.path;
+        var file_split = file_path.split('/');
+        file_name = file_split[2];
+
+        console.log(file_name);
+    } else {
+        console.log('Error subiendo la imagen');
+        //res.status(404).send({message: 'No se ha subido imagen.'})
+    }
+
+    console.log('Construye el objeto');
 
     vehiculo.modelo = params.modelo
     vehiculo.marca = params.marca
     vehiculo.disponibilidad = params.disponibilidad
     vehiculo.descripcion = params.descripcion
     vehiculo.precio = params.precio
+    vehiculo.image = file_name
 
     if (vehiculo.modelo != null) {
         vehiculo.save((err, vehiculoStored) => {
@@ -87,5 +156,8 @@ module.exports = {
   agregar,
   obtenerVehiculos,
   actualizar,
-  borrar
+  borrar,
+  marcarComoDisponible,
+  marcarComoNoDisponible,
+  subirFoto
 }
