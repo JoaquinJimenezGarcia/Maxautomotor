@@ -25,8 +25,6 @@ export class AdminCocheComponent implements OnInit {
     }
 
     public onSubmit() {
-        console.log(this.coche);
-
         this._cocheServices.crear(this.coche)
             .subscribe(response => {
                 console.log(response);

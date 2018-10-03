@@ -29,8 +29,8 @@
             <tbody *ngFor="let coche of coches">
                 <tr>
                     <td>{{coche.marca}} - {{coche.modelo}} => Disponibilidad: {{coche.disponibilidad}}</td>
-                    <td><a (click)="cambiarDisponibilidad(coche._id)" class="btn btn-warning">Cambiar disponibilidad</a></td>
-                    <td><a (click)="modificarCoche(coche._id)" class="btn btn-warning">Modificar</a></td>
+                    <td><a (click)="marcarDisponible(coche._id)" class="btn btn-success">Marcar como disponible</a></td>
+                    <td><a (click)="marcarNoDisponible(coche._id)" class="btn btn-warning">Marcar como no disponible</a></td>
                     <td><a (click)="borrarCoche(coche._id)" class="btn btn-danger">Borrar</a></td>
                 </tr>
             </tbody>

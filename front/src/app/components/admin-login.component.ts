@@ -94,8 +94,34 @@ export class AdminLoginComponent implements OnInit {
     this.token = null;
   }
 
-  cambiarDisponibilidad(id) {
-    this._cocheServices.cambiarDisponibilidad(id).subscribe(
+  marcarDisponible(id) {
+    console.log();
+    this._cocheServices.marcarDisponible(id).subscribe(
+      response => {
+        console.log(response);
+        if (!response.vehiculos) {
+          //this.alert = 'No deletions were made.';
+        } else {
+          this.ngOnInit()
+        }
+      },
+      error => {
+        var body = JSON.parse(error._body)
+        //this.alert = <any>error;
+
+        /*if (this.alert != null) {
+            var body = JSON.parse(error._body)
+            //this.alert = body.message
+        }*/
+      }
+    )
+
+    this.ngOnInit()
+  }
+
+  marcarNoDisponible(id) {
+    console.log();
+    this._cocheServices.marcarNoDisponible(id).subscribe(
       response => {
         if (!response.vehiculos) {
           //this.alert = 'No deletions were made.';
@@ -113,6 +139,7 @@ export class AdminLoginComponent implements OnInit {
         }*/
       }
     )
+    this.ngOnInit()
   }
 
   borrarCoche(id) {

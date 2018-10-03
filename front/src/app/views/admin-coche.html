@@ -20,8 +20,7 @@
       </p>
       <p>
         <label for="disponibilidad">Disponibilidad</label>
-        <input type="checkbox" class="form-control" #disponibilidad="ngModel" name="disponibilidad" [(ngModel)]="coche.disponibilidad" required>
-        <span *ngIf="!disponibilidad.valid && disponibilidad.touched">Esta marcación es obligatoria</span>
+        <input type="checkbox" class="form-control" #disponibilidad="ngModel" name="disponibilidad" [(ngModel)]="coche.disponibilidad">
       </p>
       <p>
         <label for="descripcion">Descripcion</label>
@@ -35,7 +34,7 @@
       </p>
       <p>
         <label for="image">Foto principal</label>
-        <input type="file" class="form-control" #image="ngModel" name="image" [(ngModel)]="coche.image">
+        <input type="text" class="form-control" #image="ngModel" name="image" [(ngModel)]="coche.image">
       </p>
       <p>
         <input type="submit" class="btn btn-primary" value="Guardar">

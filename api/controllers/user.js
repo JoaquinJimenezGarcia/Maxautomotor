@@ -37,7 +37,7 @@ function login(req, res){
     })
 }
 
-function register(req, res){
+/*function register(req, res){
     var user = new User()
     var params = req.body
 
@@ -77,9 +77,9 @@ function register(req, res){
             }
         }
     })
-}
+}*/
 
-function update(req, res) {
+/*function update(req, res) {
     var userId = req.params.id 
     var update = req.body
 
@@ -91,7 +91,7 @@ function update(req, res) {
         return res.status(500).send({message: 'You cannot update your email yet.'})
     }*/
 
-    if (update.password) {
+    /*if (update.password) {
         bcrypt.hash(update.password, null, null, function(err, hash) {
             update.password = hash
             toUpdate(req, res, update, userId)
@@ -113,10 +113,10 @@ function toUpdate(req, res, update, userId){
             }
         }
     })
-}
+}*/
 
 module.exports = {
-  register,
+  //register,
   login, 
-  update
+  //update
 }

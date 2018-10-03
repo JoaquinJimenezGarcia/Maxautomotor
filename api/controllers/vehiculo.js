@@ -38,9 +38,9 @@ function subirFoto(req, res) {
 }
 
 function marcarComoDisponible(req, res) {
-    var vehiculoId = req.params.id 
+    var vehiculoId = req.params.id
     req.body.disponibilidad = 1
-    var update = req.body.disponibilidad 
+    var update = req.body
 
     Vehiculo.findByIdAndUpdate(vehiculoId, update, (err, vehiculoUpdated) => {
         if (err){
@@ -49,6 +49,7 @@ function marcarComoDisponible(req, res) {
             if(!vehiculoUpdated) {
                 res.status(404).send({message: 'Internal error updating the vehiculo.'})
             } else {
+                console.log('Actualiza');
                 res.status(200).send({vehiculo: vehiculoUpdated})
             }
         }
@@ -56,9 +57,9 @@ function marcarComoDisponible(req, res) {
 }
 
 function marcarComoNoDisponible(req, res) {
-    var vehiculoId = req.params.id 
+    var vehiculoId = req.params.id
     req.body.disponibilidad = 0
-    var update = req.body.disponibilidad 
+    var update = req.body
 
     Vehiculo.findByIdAndUpdate(vehiculoId, update, (err, vehiculoUpdated) => {
         if (err){
@@ -67,6 +68,7 @@ function marcarComoNoDisponible(req, res) {
             if(!vehiculoUpdated) {
                 res.status(404).send({message: 'Internal error updating the vehiculo.'})
             } else {
+                console.log('Actualiza');
                 res.status(200).send({vehiculo: vehiculoUpdated})
             }
         }
@@ -99,7 +101,7 @@ function agregar(req, res){
     vehiculo.disponibilidad = params.disponibilidad
     vehiculo.descripcion = params.descripcion
     vehiculo.precio = params.precio
-    vehiculo.image = file_name
+    vehiculo.image = params.image
 
     if (vehiculo.modelo != null) {
         vehiculo.save((err, vehiculoStored) => {

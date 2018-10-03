@@ -12,6 +12,7 @@ export class CochesServices {
 
     constructor(private _http: Http) {
         this.url = GLOBAL.url;
+        this.token = this.getToken();
     }
 
     crear(coche_a_insertar) {
@@ -41,13 +42,22 @@ export class CochesServices {
             .pipe(map(res => res.json()))
     }
 
-    cambiarDisponibilidad(id: string) {
+    marcarDisponible(id) {
         let headers = new Headers({'Content-Type':'application/json',
-            'Authorization': this.getToken()})
+            'Authorization': this.getToken()});
         let options = new RequestOptions({headers: headers})
 
-        return this._http.put(this.url+'actualizar-vehiculo/'+id, options)
-            .pipe(map(res => res.json()))
+        return this._http.put(this.url+'marcar-disponible/'+id, options)
+            .pipe(map(res => res.json()));
+    }
+
+    marcarNoDisponible(id) {
+        let headers = new Headers({'Content-Type':'application/json',
+            'Authorization': this.getToken()});
+        let options = new RequestOptions({headers: headers})
+
+        return this._http.put(this.url+'marcar-nodisponible/'+id, options)
+            .pipe(map(res => res.json()));
     }
 
     getIdentity() {
