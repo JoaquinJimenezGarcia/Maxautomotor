@@ -12,7 +12,7 @@ const appRoutes: Routes = [
     {path: '', component: InicioComponent},
     {path: 'index', component: InicioComponent},
     {path: 'sobre-nosotros', component: SobreNosotrosComponent},
-    {path: 'coches', component: CochesComponent},
+    {path: 'vehiculos', component: CochesComponent},
     {path: 'admin-login', component: AdminLoginComponent},
     {path: 'admin-coche', component: AdminCocheComponent},
     {path: 'coches-disponibles', component: CochesDisponiblesComponent},
