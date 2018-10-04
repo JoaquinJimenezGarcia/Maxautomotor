@@ -30,13 +30,7 @@ import { CochesDisponiblesComponent } from './components/coches-disponibles.comp
   ],
   providers: [appRoutingProviders],
   bootstrap: [
-    AppComponent, 
-    SobreNosotrosComponent, 
-    InicioComponent, 
-    CochesComponent,
-    AdminLoginComponent,
-    AdminCocheComponent,
-    CochesDisponiblesComponent
+    AppComponent
   ]
 })
 export class AppModule { }
