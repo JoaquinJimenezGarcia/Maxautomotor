@@ -1,3 +1,4 @@
 export var GLOBAL = {
-    url: 'http://localhost:3977/api/'
+    // URL producción
+    url: 'http://51.75.18.138:3977/api/'
 }
