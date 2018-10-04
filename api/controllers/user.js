@@ -37,7 +37,7 @@ function login(req, res){
     })
 }
 
-/*function register(req, res){
+function register(req, res){
     var user = new User()
     var params = req.body
 
@@ -77,7 +77,7 @@ function login(req, res){
             }
         }
     })
-}*/
+}
 
 /*function update(req, res) {
     var userId = req.params.id 
@@ -116,7 +116,7 @@ function toUpdate(req, res, update, userId){
 }*/
 
 module.exports = {
-  //register,
+  register,
   login, 
   //update
 }
