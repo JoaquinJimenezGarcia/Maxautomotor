@@ -94,6 +94,82 @@ export class AdminLoginComponent implements OnInit {
     this.token = null;
   }
 
+  marcarReservado(id) {
+    console.log();
+    this._cocheServices.marcarReservado(id).subscribe(
+      response => {
+        console.log(response);
+        if (!response.vehiculos) {
+          //this.alert = 'No deletions were made.';
+        } else {
+          this.ngOnInit()
+        }
+      },
+      error => {
+        var body = JSON.parse(error._body)
+        //this.alert = <any>error;
+
+        /*if (this.alert != null) {
+            var body = JSON.parse(error._body)
+            //this.alert = body.message
+        }*/
+      }
+    )
+
+    this.ngOnInit()
+  }
+
+  marcarNoReservado(id) {
+    console.log();
+    this._cocheServices.marcarNoReservado(id).subscribe(
+      response => {
+        console.log(response);
+        if (!response.vehiculos) {
+          //this.alert = 'No deletions were made.';
+        } else {
+          this.ngOnInit()
+        }
+      },
+      error => {
+        var body = JSON.parse(error._body)
+        //this.alert = <any>error;
+
+        /*if (this.alert != null) {
+            var body = JSON.parse(error._body)
+            //this.alert = body.message
+        }*/
+      }
+    )
+
+    this.ngOnInit()
+  }
+
+  marcarVendido(id) {
+    console.log();
+    this._cocheServices.marcarVendido(id).subscribe(
+      response => {
+        console.log(response);
+        if (!response.vehiculos) {
+          //this.alert = 'No deletions were made.';
+        } else {
+          this.ngOnInit()
+        }
+      },
+      error => {
+        var body = JSON.parse(error._body)
+        console.log(body);
+        //this.alert = <any>error;
+
+        /*if (this.alert != null) {
+            var body = JSON.parse(error._body)
+            //this.alert = body.message
+        }*/
+      }
+    )
+
+    this.ngOnInit()
+  }
+
   marcarDisponible(id) {
     console.log();
     this._cocheServices.marcarDisponible(id).subscribe(

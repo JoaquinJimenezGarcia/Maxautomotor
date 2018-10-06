@@ -6,6 +6,9 @@ export class Vehiculo {
         public disponibilidad: boolean,
         public image: string,
         public descripcion: string,
-        public precio: number
+        public precio: number,
+        public oferta: boolean,
+        public resevado: boolean,
+        public vendido: boolean
     ) {}
 }

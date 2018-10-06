@@ -12,7 +12,6 @@ export class CochesServices {
 
     constructor(private _http: Http) {
         this.url = GLOBAL.url;
-        this.token = this.getToken();
     }
 
     crear(coche_a_insertar) {
@@ -42,6 +41,33 @@ export class CochesServices {
             .pipe(map(res => res.json()))
     }
 
+    marcarVendido(id: string) {
+        let headers = new Headers({'Content-Type':'application/json',
+            'Authorization': this.getToken()})
+        let options = new RequestOptions({headers: headers})
+
+        return this._http.put(this.url+'marcar-vendido/'+id, options)
+            .pipe(map(res => res.json()))
+    }
+
+    ponerEnOferta(precio){
+        let headers = new Headers({'Content-Type':'application/json',
+            'Authorization': this.getToken()});
+        let options = new RequestOptions({headers: headers})
+
+        return this._http.put(this.url+'poner-en-oferta/', options)
+            .pipe(map(res => res.json()));
+    }
+
+    quitarEnOferta(precio){
+        let headers = new Headers({'Content-Type':'application/json',
+            'Authorization': this.getToken()});
+        let options = new RequestOptions({headers: headers})
+
+        return this._http.put(this.url+'quitar-en-oferta/', options)
+            .pipe(map(res => res.json()));
+    }
+
     marcarDisponible(id) {
         let headers = new Headers({'Content-Type':'application/json',
             'Authorization': this.getToken()});
@@ -59,6 +85,43 @@ export class CochesServices {
         return this._http.put(this.url+'marcar-nodisponible/'+id, options)
             .pipe(map(res => res.json()));
     }
+
+    marcarReservado(id) {
+        let headers = new Headers({'Content-Type':'application/json',
+            'Authorization': this.getToken()});
+        let options = new RequestOptions({headers: headers})
+
+        return this._http.put(this.url+'marcar-reservado/'+id, options)
+            .pipe(map(res => res.json()));
+    }
+
+    marcarNoReservado(id) {
+        let headers = new Headers({'Content-Type':'application/json',
+            'Authorization': this.getToken()});
+        let options = new RequestOptions({headers: headers})
+
+        return this._http.put(this.url+'marcar-no-reservado/'+id, options)
+            .pipe(map(res => res.json()));
+    }
+
+    /*marcarVendido(id) {
+        console.log('identity');
+        console.log(this.getIdentity());
+        console.log('token');
+        console.log(this.getToken());
+        let token = this.getToken();
+        let headers = new Headers({'Content-Type':'application/json',
+            'Authorization': token
+        });
+        console.log('headers');
+        console.log(headers);
+        let options = new RequestOptions({headers: headers})
+        console.log('options');
+        console.log(options);
+
+        return this._http.put(this.url+'marcar-vendido/'+id, {headers: headers})
+            .pipe(map(res => res.json()));
+    }*/
 
     getIdentity() {
         let identity = JSON.parse(localStorage.getItem('identity'));

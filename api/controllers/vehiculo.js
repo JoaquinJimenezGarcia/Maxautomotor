@@ -22,6 +22,10 @@ function obtenerVehiculos(req, res) {
     })
 }
 
+function obtenerVehiculo(req, res){
+
+}
+
 function subirFoto(req, res) {
     var cocheId = req.params.id;
     var file_name = 'No subido...';
@@ -35,6 +39,69 @@ function subirFoto(req, res) {
     } else {
         res.status(404).send({message: 'No se ha subido imagen.'})
     }
+}
+
+function marcarComoReservado(req, res) {
+    var vehiculoId = req.params.id
+    req.body.reservado = 1
+    var update = req.body
+
+    actualizarVehiculo(vehiculoId, update, res);
+}
+
+function marcarComoNoReservado(req, res) {
+    var vehiculoId = req.params.id
+    req.body.reservado = 0
+    var update = req.body
+
+    actualizarVehiculo(vehiculoId, update, res);
+}
+
+function marcarComoVendido(req, res) {
+    var vehiculoId = req.params.id
+    req.body.vendido = 1
+    var update = req.body
+
+    actualizarVehiculo(vehiculoId, update, res);
+}
+
+function marcarComoNoVendido(req, res) {
+    var vehiculoId = req.params.id
+    req.body.vendido = 0
+    var update = req.body
+
+    actualizarVehiculo(vehiculoId, update, res);
+}
+
+function ponerEnOferta(req, res) {
+    var vehiculoId = req.params.id
+    req.body.oferta = 1
+    var update = req.body
+
+    actualizarVehiculo(vehiculoId, update, res);
+}
+
+function quitarEnOferta(req, res) {
+    var vehiculoId = req.params.id
+    req.body.oferta = 0
+    var update = req.body
+
+    actualizarVehiculo(vehiculoId, update, res);
+}
+
+function actualizarVehiculo(id, update, res) {
+    Vehiculo.findByIdAndUpdate(id, update, (err, vehiculoUpdated) => {
+        if (err){
+            res.status(500).send({message: 'Error actualizando el vehículo.'})
+        } else {
+            if(!vehiculoUpdated) {
+                res.status(404).send({message: 'Internal error updating the vehiculo.'})
+            } else {
+                console.log('Actualiza');
+                res.status(200).send({vehiculo: vehiculoUpdated})
+            }
+        }
+    })
 }
 
 function marcarComoDisponible(req, res) {
@@ -157,9 +224,16 @@ function borrar(req, res) {
 module.exports = {
   agregar,
   obtenerVehiculos,
+  obtenerVehiculo,
   actualizar,
   borrar,
   marcarComoDisponible,
   marcarComoNoDisponible,
-  subirFoto
+  subirFoto,
+  ponerEnOferta,
+  quitarEnOferta,
+  marcarComoReservado,
+  marcarComoNoReservado,
+  marcarComoVendido,
+  marcarComoNoVendido
 }

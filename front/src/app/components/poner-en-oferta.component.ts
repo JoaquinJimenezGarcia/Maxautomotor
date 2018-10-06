@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Vehiculo } from '../models/vehiculo';
 import { UsuarioServices } from '../services/usuario.services';
 import { CochesServices } from '../services/coches.services';
 
 @Component({
-    selector: 'admin-coches',
-    templateUrl: '../views/admin-coche.html'
+    selector: 'poner-en-oferta',
+    templateUrl: '../views/poner-en-oferta.html'
 })
 
-export class AdminCocheComponent implements OnInit {
-    public identity;
+export class PonerEnOfertaComponent implements OnInit {
+    public precio: number;
     public token;
-    public coche: Vehiculo;
-    public alertCreation;
+    public identity;
 
     constructor(private router: Router, private _usuarioService: UsuarioServices, private _cocheServices: CochesServices) {
-        this.coche = new Vehiculo('', '', '', false, '', '', 0, false, false, false);
+        this.precio = 0;
     }
 
     ngOnInit() {
@@ -25,28 +23,28 @@ export class AdminCocheComponent implements OnInit {
     }
 
     public onSubmit() {
-        this._cocheServices.crear(this.coche)
+        this._cocheServices.ponerEnOferta(this.precio)
             .subscribe(response => {
                 console.log(response);
-                let coche = response.vehiculo;
-                this.coche = coche;
+                /*let coche = response.vehiculo;
+                this.coche = coche;*/
 
-                if (!coche._id) {
+                /*if (!coche._id) {
                     this.alertCreation = 'Error al añadir el coche';
                 } else {
                     this.alertCreation = "Page created successfully";
-                    this.coche = new Vehiculo('', '', '', false, '', '', 0, false, false, false);
+                    this.coche = new Vehiculo('', '', '', false, '', '', 0, false);
                     this.router.navigate(["/admin-login"]);
-                }
+                }*/
             },
                 error => {
-                    console.log('Entra en el error');
+                   /* console.log('Entra en el error');
                     this.alertCreation = <any>error;
 
                     if (this.alertCreation != null) {
                         var body = JSON.parse(error._body);
                         this.alertCreation = body.message;
-                    }
+                    }*/
 
                 }
             );

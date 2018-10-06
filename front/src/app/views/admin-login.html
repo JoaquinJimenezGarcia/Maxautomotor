@@ -52,9 +52,14 @@
         <table class="table table-striped">
             <tbody *ngFor="let coche of coches">
                 <tr>
-                    <td>{{coche.marca}} - {{coche.modelo}} => Disponibilidad: {{coche.disponibilidad}}</td>
-                    <td><a (click)="marcarDisponible(coche._id)" class="btn btn-success">Marcar como disponible</a></td>
-                    <td><a (click)="marcarNoDisponible(coche._id)" class="btn btn-warning">Marcar como no disponible</a></td>
+                    <td>{{coche.marca}} - {{coche.modelo}}</td>
+                    <td *ngIf="!coche.disponibilidad"><a (click)="marcarDisponible(coche._id)" class="btn btn-success">Marcar como disponible</a></td>
+                    <td *ngIf="coche.disponibilidad"><a (click)="marcarNoDisponible(coche._id)" class="btn btn-warning">Marcar como no disponible</a></td>
+                    <td *ngIf="!coche.reservado"><a (click)="marcarReservado(coche._id)" class="btn btn-success">Marcar como reservado</a></td>
+                    <td *ngIf="coche.reservado"><a (click)="marcarNoReservado(coche._id)" class="btn btn-warning">Marcar como no reservado</a></td>
+                    <td *ngIf="!coche.oferta"><a (click)="marcarReservado(coche._id)" class="btn btn-success">Poner en oferta</a></td>
+                    <td *ngIf="coche.oferta"><a (click)="marcarNoReservado(coche._id)" class="btn btn-warning">Quitar en oferta</a></td>
+                    <td *ngIf="!coche.vendido"><a (click)="marcarVendido(coche._id)" class="btn btn-success">Marcar como vendido</a></td>
                     <td><a (click)="borrarCoche(coche._id)" class="btn btn-danger">Borrar</a></td>
                 </tr>
             </tbody>
