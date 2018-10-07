@@ -16,7 +16,7 @@
                     <a class="nav-link" href="vehiculos">Vehículos</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="ofertas-del-mes">Ofertas</a>
+                    <a class="nav-link" href="ofertas-del-mes">Ofertas del mes</a>
                 </li>
                 <li class="nav-item">
                     <a [routerLink]="['/sobre-nosotros']" class="nav-link" href="sobre-nosotros">Sobre nosotros</a>
@@ -32,7 +32,7 @@
             <a><img class="card-img-top" src="{{coche.image}}" alt=""></a>
             <div class="card-body">
                 <h4 class="card-title">
-                    <a>{{coche.marca}} - {{coche.modelo}}</a>
+                    <a href="vehiculo/{{coche._id}}">{{coche.marca}} - {{coche.modelo}}</a>
                 </h4>
                 <p class="card-text">{{coche.descripcion}}</p>
             </div>

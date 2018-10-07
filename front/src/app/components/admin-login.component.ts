@@ -21,7 +21,7 @@ export class AdminLoginComponent implements OnInit {
 
   constructor(private _cocheServices: CochesServices, private _usuarioService: UsuarioServices, private router: Router) {
     this.usuario = new Usuario('', '', '', '');
-    this.vehiculo =  new Vehiculo('', '', '', false, '', '', 0, false, false, false, 0);
+    this.vehiculo =  new Vehiculo('', '', '', false, '', '', 0, false, false, false, 0, '');
   }
 
   ngOnInit() {

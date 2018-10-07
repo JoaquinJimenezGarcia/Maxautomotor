@@ -52,6 +52,11 @@
         <span *ngIf="!descripcion.valid && descripcion.touched">La descripción es obligatoria</span>
       </p>
       <p>
+        <label for="caracteristicas">Características</label>
+        <input type="text" class="form-control" #caracteristicas="ngModel" name="caracteristicas" [(ngModel)]="coche.caracteristicas" required>
+        <span *ngIf="!caracteristicas.valid && caracteristicas.touched">Las caracteristicas son obligatorias</span>
+      </p>
+      <p>
         <label for="precio">Precio</label>
         <input type="number" class="form-control" #precio="ngModel" name="precio" [(ngModel)]="coche.precio" required>
         <span *ngIf="!precio.valid && precio.touched">El precio es obligatorio</span>

@@ -14,6 +14,7 @@ var VehiculoSchema = Schema({
     reservado: Boolean,
     vendido: Boolean,
     precioOferta: Number,
+    caracteristicas: String
 })
 
 module.exports = mongoose.model('Vehiculo', VehiculoSchema)

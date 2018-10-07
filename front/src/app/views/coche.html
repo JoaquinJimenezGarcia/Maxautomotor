@@ -16,7 +16,7 @@
                     <a class="nav-link" href="vehiculos">Vehículos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ofertas-del-mes">Ofertas</a>
+                    <a class="nav-link" href="ofertas-del-mes">Ofertas del mes</a>
                 </li>
                 <li class="nav-item">
                     <a [routerLink]="['/sobre-nosotros']" class="nav-link" href="sobre-nosotros">Sobre nosotros</a>
@@ -44,6 +44,8 @@
         <div class="col-md-4">
             <h3 class="my-3">Descripción</h3>
             <p>{{coche[0].descripcion}}</p>
+            <h3 class="my-3">Características</h3>
+            <p>{{coche[0].caracteristicas}}</p>
             <!--<h3 class="my-3">Project Details</h3>
             <ul>
                 <li>Lorem Ipsum</li>
@@ -53,6 +55,23 @@
             </ul>-->
         </div>
 
+    </div>
+    <div *ngIf="coche[0].oferta" class="row">
+        <div class="col-md-3 col-sm-6 mb-4">
+            <del><h3 class="my-3">Precio</h3></del>
+            <del><p>{{coche[0].precio}} €</p></del>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+            <h3 class="my-3">¡Precio en Oferta!</h3>
+            <p>{{coche[0].precioOferta}} €</p>
+        </div>
+    </div>
+    <div *ngIf="!coche[0].oferta" class="row">
+        <div class="col-md-3 col-sm-6 mb-4">
+            <h3 class="my-3">Precio</h3>
+            <p>{{coche[0].precio}} €</p>
+        </div>
     </div>
     <!-- /.row -->
 

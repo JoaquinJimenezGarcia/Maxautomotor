@@ -189,6 +189,7 @@ function agregar(req, res){
     vehiculo.reservado = params.reservado
     vehiculo.vendido = params.vendido
     vehiculo.precioOferta = vehiculo.precio
+    vehiculo.caracteristicas = params.caracteristicas
 
     if (vehiculo.modelo != null) {
         vehiculo.save((err, vehiculoStored) => {
