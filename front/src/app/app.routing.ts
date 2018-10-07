@@ -7,8 +7,8 @@ import { CochesComponent } from './components/coches.component';
 import { AdminLoginComponent } from './components/admin-login.component';
 import { AdminCocheComponent } from './components/admin-coche.component';
 import { CochesDisponiblesComponent } from './components/coches-disponibles.component';
-import { PonerEnOfertaComponent } from './components/poner-en-oferta.component';
 import { CochesEnOfertaComponent } from './components/coches-en-oferta.component';
+import { CocheComponent } from './components/coche.component';
 
 const appRoutes: Routes = [
     {path: '', component: InicioComponent},
@@ -18,8 +18,8 @@ const appRoutes: Routes = [
     {path: 'admin-login', component: AdminLoginComponent},
     {path: 'admin-coche', component: AdminCocheComponent},
     {path: 'coches-disponibles', component: CochesDisponiblesComponent},
-    {path: 'poner-en-oferta', component: PonerEnOfertaComponent},
     {path: 'ofertas-del-mes', component: CochesEnOfertaComponent},
+    {path: 'vehiculo/:id', component: CocheComponent},
 ];
 
 export const appRoutingProviders: any[] = [];

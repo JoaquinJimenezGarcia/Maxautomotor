@@ -10,6 +10,7 @@ var md_upload = multipart({uploadDir: './uploads/coches'});
 api.post('/agregar-vehiculo', [md_auth.ensureAuth, md_upload], VehiculoController.agregar)
 api.put('/actualizar-vehiculo/:id', md_auth.ensureAuth, VehiculoController.actualizar)
 api.get('/vehiculos', VehiculoController.obtenerVehiculos)
+api.get('/vehiculo/:id', VehiculoController.obtenerVehiculo)
 api.delete('/eliminar-vehiculo/:id', md_auth.ensureAuth, VehiculoController.borrar)
 api.put('/marcar-disponible/:id', VehiculoController.marcarComoDisponible)
 api.put('/marcar-nodisponible/:id', VehiculoController.marcarComoNoDisponible)

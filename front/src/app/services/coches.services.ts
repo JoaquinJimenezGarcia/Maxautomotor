@@ -32,6 +32,14 @@ export class CochesServices {
             .pipe(map(res => res.json()));
     }
 
+    getCoche(id: string) {
+        let headers = new Headers({'Content-Type':'application/json'});
+        let options = new RequestOptions({headers: headers})
+
+        return this._http.get(this.url+'vehiculo/'+id, options)
+            .pipe(map(res => res.json()));
+    }
+
     borrarCoche(id: string) {
         let headers = new Headers({'Content-Type':'application/json',
             'Authorization': this.getToken()})

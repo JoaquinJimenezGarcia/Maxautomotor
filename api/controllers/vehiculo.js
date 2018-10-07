@@ -23,7 +23,19 @@ function obtenerVehiculos(req, res) {
 }
 
 function obtenerVehiculo(req, res){
+    var cocheId = req.params.id;
 
+    Vehiculo.find({_id: cocheId}).populate({path: 'svehiculo'}).exec((err, vehiculo)=> {
+        if(err) {
+            res.status(500).send({message: 'Error trying to get the page.'})
+        } else {
+            if(!vehiculo) {
+                res.status(404).send({message: 'The page doesnt exist.'})
+            } else {
+                res.status(200).send({vehiculo: vehiculo})
+            }
+        }
+    })
 }
 
 function subirFoto(req, res) {

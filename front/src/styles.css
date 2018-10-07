@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-p, h2, address, h1, td {
+p, h2, address, h1, td, h3, li {
     color:white;
 }
 
