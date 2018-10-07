@@ -18,5 +18,7 @@ api.put('/marcar-reservado/:id', VehiculoController.marcarComoReservado)
 api.put('/marcar-no-reservado/:id', VehiculoController.marcarComoNoReservado)
 api.put('/marcar-vendido/:id', VehiculoController.marcarComoVendido)
 api.put('/marcar-no-vendido/:id', VehiculoController.marcarComoNoVendido)
+api.put('/poner-en-oferta/:id', VehiculoController.ponerEnOferta)
+api.put('/quitar-en-oferta/:id', VehiculoController.quitarEnOferta)
 
 module.exports = api

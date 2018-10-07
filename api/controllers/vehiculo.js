@@ -85,8 +85,10 @@ function ponerEnOferta(req, res) {
 }
 
 function quitarEnOferta(req, res) {
+    console.log(req.body);
     var vehiculoId = req.params.id
     req.body.oferta = 0
+    req.body.precioOferta = 0
     var update = req.body
 
     actualizarVehiculo(vehiculoId, update, res);

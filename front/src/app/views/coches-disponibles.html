@@ -60,6 +60,7 @@
                     <small *ngIf="coche.reservado" class="text-muted">Reservado: Sí </small>
                     <small *ngIf="!coche.disponibilidad" class="text-muted">Disponible: No - </small>
                     <small *ngIf="!coche.reservado" class="text-muted">Reservado: No </small>
+                    <small *ngIf="coche.oferta" class="text-muted"> - ¡VEHÍCULO EN OFERTA! </small>
                 </div>
                 <div *ngIf="coche.vendido">
                     <small class="text-muted">Coche vendido</small>

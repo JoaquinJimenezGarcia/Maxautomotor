@@ -58,7 +58,10 @@
                         <td *ngIf="coche.disponibilidad"><a (click)="marcarNoDisponible(coche._id)" class="btn btn-warning">Marcar como no disponible</a></td>
                         <td *ngIf="!coche.reservado"><a (click)="marcarReservado(coche._id)" class="btn btn-success">Marcar como reservado</a></td>
                         <td *ngIf="coche.reservado"><a (click)="marcarNoReservado(coche._id)" class="btn btn-warning">Marcar como no reservado</a></td>
-                        <td *ngIf="!coche.oferta"><a (click)="ponerEnOferta(coche._id)" class="btn btn-success">Poner en oferta</a></td>
+                        <form #registerForm="ngForm" (ngSubmit)="ponerEnOferta(coche._id, coche)" action="" class="col-md-10" enctype="multipart/form-data">
+                            <td *ngIf="!coche.oferta"><input type="number" #precioOferta="ngModel" name="precioOferta" [(ngModel)]="vehiculo.precioOferta" placeholder="Precio en oferta"></td>    
+                            <td *ngIf="!coche.oferta"><input type="submit" class="btn btn-primary" value="Poner en Oferta"></td>
+                        </form>
                         <td *ngIf="coche.oferta"><a (click)="quitarEnOferta(coche._id)" class="btn btn-warning">Quitar en oferta</a></td>
                         <td *ngIf="!coche.vendido"><a (click)="marcarVendido(coche._id)" class="btn btn-success">Marcar como vendido</a></td>
                     </div>

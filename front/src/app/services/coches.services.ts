@@ -50,12 +50,16 @@ export class CochesServices {
             .pipe(map(res => res.json()))
     }
 
-    ponerEnOferta(id){
+    ponerEnOferta(id, vehiculo){
+        let json = JSON.stringify(vehiculo);
+        let params = json;
         let headers = new Headers({'Content-Type':'application/json',
             'Authorization': this.getToken()});
         let options = new RequestOptions({headers: headers})
 
-        return this._http.put(this.url+'poner-en-oferta/'+id, options)
+        console.log('justo antes de enviar el put');
+
+        return this._http.put(this.url+'poner-en-oferta/'+id, params, options)
             .pipe(map(res => res.json()));
     }
 
@@ -64,7 +68,7 @@ export class CochesServices {
             'Authorization': this.getToken()});
         let options = new RequestOptions({headers: headers})
 
-        return this._http.put(this.url+'quitar-en-oferta/', options)
+        return this._http.put(this.url+'quitar-en-oferta/'+id, options)
             .pipe(map(res => res.json()));
     }
 

@@ -23,7 +23,7 @@ export class PonerEnOfertaComponent implements OnInit {
     }
 
     public onSubmit() {
-        this._cocheServices.ponerEnOferta(this.precio)
+       /* this._cocheServices.ponerEnOferta(id, this.precio)
             .subscribe(response => {
                 console.log(response);
                 /*let coche = response.vehiculo;
@@ -36,7 +36,7 @@ export class PonerEnOfertaComponent implements OnInit {
                     this.coche = new Vehiculo('', '', '', false, '', '', 0, false);
                     this.router.navigate(["/admin-login"]);
                 }*/
-            },
+           /* },
                 error => {
                    /* console.log('Entra en el error');
                     this.alertCreation = <any>error;
@@ -46,7 +46,7 @@ export class PonerEnOfertaComponent implements OnInit {
                         this.alertCreation = body.message;
                     }*/
 
-                }
-            );
+               /* }
+            );*/
     }
 }

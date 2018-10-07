@@ -14,12 +14,14 @@ import { CochesServices } from '../services/coches.services';
 export class AdminLoginComponent implements OnInit {
   public usuario: Usuario;
   public coches: Vehiculo[];
+  public vehiculo : Vehiculo;
   public identity;
   public token;
   public errorMessage;
 
   constructor(private _cocheServices: CochesServices, private _usuarioService: UsuarioServices, private router: Router) {
     this.usuario = new Usuario('', '', '', '');
+    this.vehiculo =  new Vehiculo('', '', '', false, '', '', 0, false, false, false, 0);
   }
 
   ngOnInit() {
@@ -218,9 +220,13 @@ export class AdminLoginComponent implements OnInit {
     this.ngOnInit()
   }
 
-  ponerEnOferta(id) {
-    console.log();
-    this._cocheServices.ponerEnOferta(id).subscribe(
+  ponerEnOferta(id, vehiculo) {
+    this.vehiculo._id = id;
+    var precioOferta = this.vehiculo.precioOferta;
+    this.vehiculo = vehiculo;
+    this.vehiculo.precioOferta = precioOferta;
+
+    this._cocheServices.ponerEnOferta(this.vehiculo._id, this.vehiculo).subscribe(
       response => {
         console.log(response);
         if (!response.vehiculos) {
