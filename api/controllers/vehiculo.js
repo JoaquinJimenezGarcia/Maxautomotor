@@ -60,6 +60,9 @@ function marcarComoNoReservado(req, res) {
 function marcarComoVendido(req, res) {
     var vehiculoId = req.params.id
     req.body.vendido = 1
+    req.body.oferta = 0
+    req.body.disponibilidad = 0
+    req.reservado = 0
     var update = req.body
 
     actualizarVehiculo(vehiculoId, update, res);
@@ -169,6 +172,9 @@ function agregar(req, res){
     vehiculo.descripcion = params.descripcion
     vehiculo.precio = params.precio
     vehiculo.image = params.image
+    vehiculo.reservado = params.reservado
+    vehiculo.vendido = params.vendido
+    vehiculo.precioOferta = vehiculo.precio
 
     if (vehiculo.modelo != null) {
         vehiculo.save((err, vehiculoStored) => {

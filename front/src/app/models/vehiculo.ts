@@ -9,6 +9,7 @@ export class Vehiculo {
         public precio: number,
         public oferta: boolean,
         public resevado: boolean,
-        public vendido: boolean
+        public vendido: boolean,
+        public precioOferta: number
     ) {}
 }

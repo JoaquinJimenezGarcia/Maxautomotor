@@ -12,6 +12,7 @@ import { AdminLoginComponent } from './components/admin-login.component';
 import { AdminCocheComponent } from './components/admin-coche.component';
 import { CochesDisponiblesComponent } from './components/coches-disponibles.component';
 import { PonerEnOfertaComponent } from './components/poner-en-oferta.component';
+import { CochesEnOfertaComponent } from './components/coches-en-oferta.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PonerEnOfertaComponent } from './components/poner-en-oferta.component';
     AdminLoginComponent,
     AdminCocheComponent,
     CochesDisponiblesComponent,
-    PonerEnOfertaComponent
+    PonerEnOfertaComponent,
+    CochesEnOfertaComponent
   ],
   imports: [
     BrowserModule,

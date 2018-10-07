@@ -218,6 +218,54 @@ export class AdminLoginComponent implements OnInit {
     this.ngOnInit()
   }
 
+  ponerEnOferta(id) {
+    console.log();
+    this._cocheServices.ponerEnOferta(id).subscribe(
+      response => {
+        console.log(response);
+        if (!response.vehiculos) {
+          //this.alert = 'No deletions were made.';
+        } else {
+          this.ngOnInit()
+        }
+      },
+      error => {
+        var body = JSON.parse(error._body)
+        //this.alert = <any>error;
+
+        /*if (this.alert != null) {
+            var body = JSON.parse(error._body)
+            //this.alert = body.message
+        }*/
+      }
+    )
+
+    this.ngOnInit()
+  }
+
+  quitarEnOferta(id) {
+    console.log();
+    this._cocheServices.quitarEnOferta(id).subscribe(
+      response => {
+        if (!response.vehiculos) {
+          //this.alert = 'No deletions were made.';
+        } else {
+          this.ngOnInit()
+        }
+      },
+      error => {
+        var body = JSON.parse(error._body)
+        //this.alert = <any>error;
+
+        /*if (this.alert != null) {
+            var body = JSON.parse(error._body)
+            //this.alert = body.message
+        }*/
+      }
+    )
+    this.ngOnInit()
+  }
+
   borrarCoche(id) {
     this._cocheServices.borrarCoche(id).subscribe(
       response => {

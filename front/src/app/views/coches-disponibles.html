@@ -49,14 +49,21 @@
             <a><img class="card-img-top" src="{{coche.image}}" alt=""></a>
             <div class="card-body">
                 <h4 class="card-title">
-                    <a>{{coche.marca}} - {{coche.modelo}} ( {{coche.precio}} €)</a>
+                    <a *ngIf="!coche.oferta">{{coche.marca}} - {{coche.modelo}} ({{coche.precio}} €)</a>
+                    <a *ngIf="coche.oferta">{{coche.marca}} - {{coche.modelo}} ({{coche.precioOferta}} €)</a>
                 </h4>
                 <p class="card-text">{{coche.descripcion}}</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Disponible: {{coche.disponibilidad}} - </small>
-                <small class="text-muted">Reservado: {{coche.reservado}} - </small>
-                <small class="text-muted">Vendido: {{coche.vendido}}</small>
+                <div *ngIf="!coche.vendido">
+                    <small *ngIf="coche.disponibilidad" class="text-muted">Disponible: Sí - </small>
+                    <small *ngIf="coche.reservado" class="text-muted">Reservado: Sí </small>
+                    <small *ngIf="!coche.disponibilidad" class="text-muted">Disponible: No - </small>
+                    <small *ngIf="!coche.reservado" class="text-muted">Reservado: No </small>
+                </div>
+                <div *ngIf="coche.vendido">
+                    <small class="text-muted">Coche vendido</small>
+                </div>
             </div>
         </div>
     </div>

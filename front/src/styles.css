@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+p, h2, address, h1, td {
+    color:white;
+}
+
+p.card-text {
+    color: black;
+}
+
 html {
     min-height: 100%;
     position: relative;
@@ -7,6 +15,7 @@ html {
 body {
     margin: 0;
     margin-bottom: 8%;
+    background-color: #414040;
 }
 footer {
     position:fixed;

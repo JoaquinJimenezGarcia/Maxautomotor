@@ -14,9 +14,9 @@ api.delete('/eliminar-vehiculo/:id', md_auth.ensureAuth, VehiculoController.borr
 api.put('/marcar-disponible/:id', VehiculoController.marcarComoDisponible)
 api.put('/marcar-nodisponible/:id', VehiculoController.marcarComoNoDisponible)
 api.post('/subir-foto/:id', [md_auth.ensureAuth, md_upload], VehiculoController.subirFoto)
-api.put('/marcar-reservado/:id', md_auth.ensureAuth, VehiculoController.marcarComoReservado)
-api.put('/marcar-no-reservado/:id', md_auth.ensureAuth, VehiculoController.marcarComoNoReservado)
-api.put('/marcar-vendido/:id', md_auth.ensureAuth, VehiculoController.marcarComoVendido)
-api.put('/marcar-no-vendido/:id', md_auth.ensureAuth, VehiculoController.marcarComoNoVendido)
+api.put('/marcar-reservado/:id', VehiculoController.marcarComoReservado)
+api.put('/marcar-no-reservado/:id', VehiculoController.marcarComoNoReservado)
+api.put('/marcar-vendido/:id', VehiculoController.marcarComoVendido)
+api.put('/marcar-no-vendido/:id', VehiculoController.marcarComoNoVendido)
 
 module.exports = api

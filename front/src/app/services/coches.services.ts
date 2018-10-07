@@ -50,16 +50,16 @@ export class CochesServices {
             .pipe(map(res => res.json()))
     }
 
-    ponerEnOferta(precio){
+    ponerEnOferta(id){
         let headers = new Headers({'Content-Type':'application/json',
             'Authorization': this.getToken()});
         let options = new RequestOptions({headers: headers})
 
-        return this._http.put(this.url+'poner-en-oferta/', options)
+        return this._http.put(this.url+'poner-en-oferta/'+id, options)
             .pipe(map(res => res.json()));
     }
 
-    quitarEnOferta(precio){
+    quitarEnOferta(id){
         let headers = new Headers({'Content-Type':'application/json',
             'Authorization': this.getToken()});
         let options = new RequestOptions({headers: headers})
