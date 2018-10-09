@@ -16,7 +16,7 @@ export class AdminCocheComponent implements OnInit {
     public alertCreation;
 
     constructor(private router: Router, private _usuarioService: UsuarioServices, private _cocheServices: CochesServices) {
-        this.coche = new Vehiculo('', '', '', false, '', '', 0, false, false, false, 0, '');
+        this.coche = new Vehiculo('', '', '', false, '','','','','','', '', 0, false, false, false, 0, '');
     }
 
     ngOnInit() {
@@ -35,13 +35,14 @@ export class AdminCocheComponent implements OnInit {
                     this.alertCreation = 'Error al añadir el coche';
                 } else {
                     this.alertCreation = "Page created successfully";
-                    this.coche = new Vehiculo('', '', '', false, '', '', 0, false, false, false, 0, '');
+                    this.coche = new Vehiculo('', '', '', false, '', '','','','','' ,'', 0, false, false, false, 0, '');
                     this.router.navigate(["/admin-login"]);
                 }
             },
                 error => {
                     console.log('Entra en el error');
                     this.alertCreation = <any>error;
+                    console.log(error._body.message);
 
                     if (this.alertCreation != null) {
                         var body = JSON.parse(error._body);

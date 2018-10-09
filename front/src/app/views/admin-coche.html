@@ -63,7 +63,27 @@
       </p>
       <p>
         <label for="image">Foto principal</label>
-        <input type="text" class="form-control" #image="ngModel" name="image" [(ngModel)]="coche.image">
+        <input type="text" class="form-control" #image="ngModel" name="image" [(ngModel)]="coche.image" placeholder="Tipo: carpeta/nombrefoto.formato">
+      </p>
+      <p>
+        <label for="imageUno">Foto Primera</label>
+        <input type="text" class="form-control" #imageUno="ngModel" name="imageUno" [(ngModel)]="coche.imageUno" placeholder="Tipo: carpeta/nombrefoto.formato">
+      </p>
+      <p>
+        <label for="imageDos">Foto Segunda</label>
+        <input type="text" class="form-control" #imageDos="ngModel" name="imageDos" [(ngModel)]="coche.imageDos" placeholder="Tipo: carpeta/nombrefoto.formato">
+      </p>
+      <p>
+        <label for="imageTres">Foto Tercera</label>
+        <input type="text" class="form-control" #imageTres="ngModel" name="imageTres" [(ngModel)]="coche.imageTres" placeholder="Tipo: carpeta/nombrefoto.formato">
+      </p>
+      <p>
+        <label for="imageCuatro">Foto Cuarta</label>
+        <input type="text" class="form-control" #imageCuatro="ngModel" name="imageCuatro" [(ngModel)]="coche.imageCuatro" placeholder="Tipo: carpeta/nombrefoto.formato">
+      </p>
+      <p>
+        <label for="imageCinco">Foto Quita</label>
+        <input type="text" class="form-control" #imageCinco="ngModel" name="imageCinco" [(ngModel)]="coche.imageCinco" placeholder="Tipo: carpeta/nombrefoto.formato">
       </p>
       <p>
         <input type="submit" class="btn btn-primary" value="Guardar">

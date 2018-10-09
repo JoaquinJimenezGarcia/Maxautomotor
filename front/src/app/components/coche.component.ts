@@ -22,7 +22,7 @@ export class CocheComponent implements OnInit {
         this.url = this.href.replace('/','');
         this.id = this.url.split('/')[1];
 
-        this.coche = new Vehiculo('', '', '', false, '', '', 0, false, false, false, 0, '');
+        this.coche = new Vehiculo('', '', '', false, '', '','','','','' ,'', 0, false, false, false, 0, '');
     }
 
     ngOnInit() {

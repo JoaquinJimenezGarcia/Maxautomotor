@@ -186,6 +186,11 @@ function agregar(req, res){
     vehiculo.descripcion = params.descripcion
     vehiculo.precio = params.precio
     vehiculo.image = params.image
+    vehiculo.imageUno = params.imageUno
+    vehiculo.imageDos = params.imageDos
+    vehiculo.imageTres = params.imageTres
+    vehiculo.imageCuatro = params.imageCuatro
+    vehiculo.imageCinco = params.imageCinco
     vehiculo.reservado = params.reservado
     vehiculo.vendido = params.vendido
     vehiculo.precioOferta = vehiculo.precio
