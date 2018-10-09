@@ -48,9 +48,29 @@ function subirFoto(req, res) {
         var file_name = file_split[2];
 
         console.log(file_name);
+        Vehiculo.findByIdAndUpdate(cocheId, {image: file_name}, (err, vehiculoUpdated) => {
+            if(!vehiculoUpdated){
+                res.status(404).send({message: 'No se ha podido subir la foto'});
+            } else {
+                res.status(200).send({vehiculo: vehiculoUpdated});
+            }
+        });
     } else {
         res.status(404).send({message: 'No se ha subido imagen.'})
     }
+}
+
+function obtenerFoto(req, res) {
+    var imageFile = req.params.imageFile;
+    var pathFile = './uploads/coches/'+imageFile;
+
+    fs.exists(pathFile, function (exists) {
+        if (exists) {
+            res.sendFile(path.resolve(pathFile));
+        } else {
+            res.status(404).send({message: 'No existe la imagen.'})
+        }
+    });
 }
 
 function marcarComoReservado(req, res) {
@@ -256,6 +276,7 @@ module.exports = {
   marcarComoDisponible,
   marcarComoNoDisponible,
   subirFoto,
+  obtenerFoto,
   ponerEnOferta,
   quitarEnOferta,
   marcarComoReservado,

@@ -29,7 +29,7 @@
 <div class="row">
     <div class="col-lg-4 col-sm-6 portfolio-item" *ngFor="let coche of coches">
         <div *ngIf="coche.oferta" class="card h-100">
-            <a><img class="card-img-top" src="{{coche.image}}" alt=""></a>
+            <a><img class="card-img-top" src="{{this.backend + 'obtener-foto/' + this.coche.image}}" alt=""></a>
             <div class="card-body">
                 <h4 class="card-title">
                     <a href="vehiculo/{{coche._id}}">{{coche.marca}} - {{coche.modelo}}</a>

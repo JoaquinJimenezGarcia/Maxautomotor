@@ -24,6 +24,17 @@ export class CochesServices {
             .pipe(map(res => res.json()));
     }
 
+    actualizaCoche(coche_a_modificar) {
+        var id = coche_a_modificar._id;
+        let json = JSON.stringify(coche_a_modificar);
+        let params = json;
+        let headers = new Headers({'Content-Type':'application/json',
+        'Authorization': this.getToken()});
+
+        return this._http.put(this.url+'actualizar-vehiculo/'+id, params, {headers: headers})
+            .pipe(map(res => res.json()));
+    }
+
     getCoches() {
         let headers = new Headers({'Content-Type':'application/json'});
         let options = new RequestOptions({headers: headers})

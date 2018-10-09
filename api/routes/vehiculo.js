@@ -15,6 +15,7 @@ api.delete('/eliminar-vehiculo/:id', md_auth.ensureAuth, VehiculoController.borr
 api.put('/marcar-disponible/:id', VehiculoController.marcarComoDisponible)
 api.put('/marcar-nodisponible/:id', VehiculoController.marcarComoNoDisponible)
 api.post('/subir-foto/:id', [md_auth.ensureAuth, md_upload], VehiculoController.subirFoto)
+api.get('/obtener-foto/:imageFile', VehiculoController.obtenerFoto)
 api.put('/marcar-reservado/:id', VehiculoController.marcarComoReservado)
 api.put('/marcar-no-reservado/:id', VehiculoController.marcarComoNoReservado)
 api.put('/marcar-vendido/:id', VehiculoController.marcarComoVendido)

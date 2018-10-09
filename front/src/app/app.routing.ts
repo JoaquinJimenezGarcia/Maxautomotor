@@ -9,6 +9,7 @@ import { AdminCocheComponent } from './components/admin-coche.component';
 import { CochesDisponiblesComponent } from './components/coches-disponibles.component';
 import { CochesEnOfertaComponent } from './components/coches-en-oferta.component';
 import { CocheComponent } from './components/coche.component';
+import { EditarCocheComponent } from './components/editar-coche.component';
 
 const appRoutes: Routes = [
     {path: '', component: InicioComponent},
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
     {path: 'coches-disponibles', component: CochesDisponiblesComponent},
     {path: 'ofertas-del-mes', component: CochesEnOfertaComponent},
     {path: 'vehiculo/:id', component: CocheComponent},
+    {path: 'editar-vehiculo/:id', component: EditarCocheComponent},
 ];
 
 export const appRoutingProviders: any[] = [];

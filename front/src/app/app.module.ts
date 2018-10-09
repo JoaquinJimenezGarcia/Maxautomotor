@@ -13,6 +13,7 @@ import { AdminCocheComponent } from './components/admin-coche.component';
 import { CochesDisponiblesComponent } from './components/coches-disponibles.component';
 import { CochesEnOfertaComponent } from './components/coches-en-oferta.component';
 import { CocheComponent } from './components/coche.component';
+import { EditarCocheComponent } from './components/editar-coche.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CocheComponent } from './components/coche.component';
     AdminCocheComponent,
     CochesDisponiblesComponent,
     CochesEnOfertaComponent,
-    CocheComponent
+    CocheComponent,
+    EditarCocheComponent
   ],
   imports: [
     BrowserModule,

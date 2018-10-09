@@ -34,17 +34,13 @@
     <form #registerForm="ngForm" (ngSubmit)="onSubmit()" action="" class="col-md-10" enctype="multipart/form-data">
       <p>
         <label for="marca">Marca</label>
-        <input type="text" class="form-control" #marca="ngModel" name="marca" [(ngModel)]="coche.marca" required>
+        <input type="text" class="form-control" #marca="ngModel" name="marca" [(ngModel)]="this.coche.marca" required>
         <span *ngIf="!marca.valid && marca.touched">La marca es obligatoria</span>
       </p>
       <p>
         <label for="modelo">Modelo</label>
         <input type="text" class="form-control" #modelo="ngModel" name="modelo" [(ngModel)]="coche.modelo" required>
         <span *ngIf="!modelo.valid && modelo.touched">El modelo es obligatorio</span>
-      </p>
-      <p>
-        <label for="disponibilidad">Disponibilidad</label>
-        <input type="checkbox" class="form-control" #disponibilidad="ngModel" name="disponibilidad" [(ngModel)]="coche.disponibilidad">
       </p>
       <p>
         <label for="descripcion">Descripcion</label>
@@ -60,6 +56,13 @@
         <label for="precio">Precio</label>
         <input type="number" class="form-control" #precio="ngModel" name="precio" [(ngModel)]="coche.precio" required>
         <span *ngIf="!precio.valid && precio.touched">El precio es obligatorio</span>
+      </p>
+      <div class="image_for_edit" *ngIf="coche.image && coche.image != 'null'">
+          <img src="{{this.backend + 'obtener-foto/' + this.coche.image}}"/>
+      </div>
+      <p>
+          <label for="image">Sube la foto: </label>
+          <input type="file" placeholder="Seleccionar imagen" (change)="fileChangeEvent($event)">
       </p>
       <p>
         <input type="submit" class="btn btn-primary" value="Guardar">

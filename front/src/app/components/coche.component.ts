@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { CochesServices } from '../services/coches.services';
 import { Vehiculo } from '../models/vehiculo';
+import { GLOBAL } from '../services/global';
 
 @Component({
     selector: 'coches',
@@ -16,8 +17,10 @@ export class CocheComponent implements OnInit {
     public href: string = "";
     public id: string;
     public coche: Vehiculo;
+    public backend: string;
 
     constructor(private _cocheServices: CochesServices ,private router: Router) {
+        this.backend = GLOBAL.url;
         this.href = this.router.url;
         this.url = this.href.replace('/','');
         this.id = this.url.split('/')[1];

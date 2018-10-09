@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { CochesServices } from '../services/coches.services';
 import { Vehiculo } from '../models/vehiculo';
+import { GLOBAL } from '../services/global';
 
 @Component({
     selector: 'coches',
@@ -12,8 +13,10 @@ import { Vehiculo } from '../models/vehiculo';
 
 export class CochesDisponiblesComponent implements OnInit {
     public coches: Vehiculo[];
+    public backend: string;
 
     constructor(private _cocheServices: CochesServices ,private router: Router) {
+        this.backend = GLOBAL.url;
     }
 
     ngOnInit() {
