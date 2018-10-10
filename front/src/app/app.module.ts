@@ -14,6 +14,7 @@ import { CochesDisponiblesComponent } from './components/coches-disponibles.comp
 import { CochesEnOfertaComponent } from './components/coches-en-oferta.component';
 import { CocheComponent } from './components/coche.component';
 import { EditarCocheComponent } from './components/editar-coche.component';
+import { AdminConfig } from './components/admin-config.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EditarCocheComponent } from './components/editar-coche.component';
     CochesDisponiblesComponent,
     CochesEnOfertaComponent,
     CocheComponent,
-    EditarCocheComponent
+    EditarCocheComponent,
+    AdminConfig
   ],
   imports: [
     BrowserModule,

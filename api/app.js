@@ -11,6 +11,7 @@ app.use(bodyParser.json())
 //TODO: Configure routes
 var userRoutes = require('./routes/user')
 var vehiculoRoutes = require('./routes/vehiculo')
+var configRoutes = require('./routes/config')
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*')
@@ -24,5 +25,6 @@ app.use((req, res, next) => {
 // TODO: Configure base routes
 app.use('/api', userRoutes)
 app.use('/api', vehiculoRoutes)
+app.use('/api', configRoutes)
 
 module.exports = app

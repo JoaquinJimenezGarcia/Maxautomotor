@@ -33,11 +33,9 @@
     <div class="row">
         <div class="col-sm-8">
             <h2 class="mt-4">Sobre nosotros</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta
-                quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo,
-                maiores!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni
-                in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
+            <p>
+                {{config[0].sobreNosotros}}
+            </p>
             <p>
                 <a class="btn btn-primary btn-lg" href="https://www.milanuncios.com/anuncios/693447775.htm">Nosotros en Milanuncios &raquo;</a>
             </p>
@@ -46,16 +44,16 @@
             <h2 class="mt-4">Contacto</h2>
             <address>
                 <strong>Maxauto Motor</strong>
-                <br>Sevilla
+                <br>{{config[0].direccion}}
                 <br>Sevilla
                 <br>
             </address>
             <address>
                 <abbr title="Phone">P:</abbr>
-                693447775
+                {{config[0].telefono}}
                 <br>
                 <abbr title="Email">E:</abbr>
-                <a href="mailto:#">borja@gmail.com</a>
+                <a href="mailto:#">{{config[0].email}}</a>
             </address>
         </div>
     </div>
