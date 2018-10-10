@@ -22,7 +22,7 @@ function mostrarConfig(req, res) {
     })
 }
 
-function agregarConfig(req, res){
+/*function agregarConfig(req, res){
     var config = new Config()
     var params = req.body
 
@@ -47,7 +47,7 @@ function agregarConfig(req, res){
     } else {
         res.status(500).send({message: 'Missing params'})
     }
-}
+}*/
 
 function actualizarConfig(req, res) {
     var configId = req.params.id 
@@ -67,7 +67,7 @@ function actualizarConfig(req, res) {
 }
 
 module.exports = {
-    agregarConfig,
+    //agregarConfig,
     actualizarConfig,
     mostrarConfig
   }

@@ -7,7 +7,7 @@ var md_auth = require('../middlewares/authenticated')
 var multipart = require('connect-multiparty')
 var md_upload = multipart({uploadDir: './uploads/users'})
 
-api.post('/crear-config',md_auth.ensureAuth, ConfigController.agregarConfig)
+//api.post('/crear-config',md_auth.ensureAuth, ConfigController.agregarConfig)
 api.put('/actualizar-config/:id',md_auth.ensureAuth, ConfigController.actualizarConfig)
 api.get('/mostrar-config', ConfigController.mostrarConfig)
 
