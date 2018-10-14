@@ -11,6 +11,7 @@ import { CochesEnOfertaComponent } from './components/coches-en-oferta.component
 import { CocheComponent } from './components/coche.component';
 import { EditarCocheComponent } from './components/editar-coche.component';
 import { AdminConfig } from './components/admin-config.component';
+import { TallerComponent } from './components/taller.component';
 
 const appRoutes: Routes = [
     {path: '', component: InicioComponent},
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
     {path: 'vehiculo/:id', component: CocheComponent},
     {path: 'editar-vehiculo/:id', component: EditarCocheComponent},
     {path: 'admin-config', component: AdminConfig},
+    {path: 'taller', component: TallerComponent},
 ];
 
 export const appRoutingProviders: any[] = [];
