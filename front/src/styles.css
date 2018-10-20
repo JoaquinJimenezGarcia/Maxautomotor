@@ -25,3 +25,7 @@ footer {
     width:100%;
     background:#999;
 }
+
+.right {
+    float: right;
+}
