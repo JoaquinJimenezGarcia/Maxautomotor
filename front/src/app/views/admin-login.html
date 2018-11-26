@@ -45,8 +45,8 @@
 
 <div *ngIf="identity">
     <h1>Tus coches</h1>
-    <a href="/admin-coche" class="btn btn-info">Añadir coche</a>
-    <a href="/admin-config" class="btn btn-info">Cambiar parámetros de información</a>
+    <a [routerLink]="['/admin-coche']" href="/admin-coche" class="btn btn-info">Añadir coche</a>
+    <a [routerLink]="['/admin-config']" href="/admin-config" class="btn btn-info">Cambiar parámetros de información</a>
     <br>
     <div id="gallery-albums" *ngIf="coches && identity">
         <br>
@@ -54,7 +54,7 @@
             <tbody *ngFor="let coche of coches">
                 <tr>
                     <td>{{coche.marca}} - {{coche.modelo}}</td>
-                    <td><a href="editar-vehiculo/{{coche._id}}" class="btn btn-success">Editar</a></td>
+                    <td><a [routerLink]="['/editar-vehiculo/'+{{coche_id}}]" href="editar-vehiculo/{{coche._id}}" class="btn btn-success">Editar</a></td>
                     <div *ngIf="!coche.vendido">
                         <td *ngIf="!coche.disponibilidad"><a (click)="marcarDisponible(coche._id)" class="btn btn-success">Marcar como disponible</a></td>
                         <td *ngIf="coche.disponibilidad"><a (click)="marcarNoDisponible(coche._id)" class="btn btn-warning">Marcar como no disponible</a></td>
